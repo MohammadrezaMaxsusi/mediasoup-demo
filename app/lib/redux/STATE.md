@@ -4,7 +4,7 @@
 {
   room :
   {
-    url             : 'https://demo.mediasoup.org/?roomId=d0el8y34',
+    url             : 'https://big2.analyzescores.com:3001/?info=true&roomId=7hp5bkzf',
     mediasoupVersion       : null,
     mediasoupClientVersion : null
     state           : 'connected', // new/connecting/connected/closed
