@@ -18,7 +18,7 @@ const mediasoup = require('mediasoup');
 const express = require('express');
 const bodyParser = require('body-parser');
 const { AwaitQueue } = require('awaitqueue');
-const Logger = require('./lib/Logger');
+// const Logger = require('./lib/Logger');
 const utils = require('./lib/utils');
 const Room = require('./lib/Room');
 const interactiveServer = require('./lib/interactiveServer');
@@ -59,7 +59,7 @@ run();
 async function run()
 {
 	// Open the interactive server.
-	await interactiveServer();
+	// await interactiveServer();
 
 	// Open the interactive client.
 	if (process.env.INTERACTIVE === 'true' || process.env.INTERACTIVE === '1')
