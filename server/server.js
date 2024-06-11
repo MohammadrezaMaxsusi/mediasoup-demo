@@ -24,7 +24,7 @@ const Room = require('./lib/Room');
 const interactiveServer = require('./lib/interactiveServer');
 const interactiveClient = require('./lib/interactiveClient');
 
-const logger = new Logger();
+// const logger = new Logger();
 
 // Async queue to manage rooms.
 // @type {AwaitQueue}
