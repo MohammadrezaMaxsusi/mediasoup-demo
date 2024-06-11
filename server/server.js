@@ -2,7 +2,7 @@
 
 process.title = 'mediasoup-demo-server';
 process.env.DEBUG = process.env.DEBUG || '*INFO* *WARN* *ERROR*';
-
+//"start": "DEBUG=${DEBUG:='*mediasoup* *INFO* *WARN* *ERROR*'} INTERACTIVE=${INTERACTIVE:='true'} node server.js",
 const config = require('./config');
 
 /* eslint-disable no-console */
