@@ -119,6 +119,7 @@ async function runMediasoupWorkers()
 		// Create a WebRtcServer in this Worker.
 		if (process.env.MEDIASOUP_USE_WEBRTC_SERVER !== 'false')
 		{
+			console.log("mohammadreza")
 			// Each mediasoup Worker will run its own WebRtcServer, so those cannot
 			// share the same listening ports. Hence we increase the value in config.js
 			// for each Worker.
@@ -131,7 +132,6 @@ async function runMediasoupWorkers()
 			}
 
 			const webRtcServer = await worker.createWebRtcServer(webRtcServerOptions);
-			console.log(webRtcServer)
 			worker.appData.webRtcServer = webRtcServer;
 		}
 
