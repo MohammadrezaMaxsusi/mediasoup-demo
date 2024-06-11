@@ -93,7 +93,6 @@ async function run()
 async function runMediasoupWorkers()
 {
 	const { numWorkers } = config.mediasoup;
-	console.log(numWorkers)
 	// logger.info('running %d mediasoup Workers...', numWorkers);
 
 	for (let i = 0; i < numWorkers; ++i)
@@ -107,7 +106,7 @@ async function runMediasoupWorkers()
 				rtcMinPort          : Number(config.mediasoup.workerSettings.rtcMinPort),
 				rtcMaxPort          : Number(config.mediasoup.workerSettings.rtcMaxPort)
 			});
-
+		console.log(worker)
 		worker.on('died', () =>
 		{
 			// logger.error(
