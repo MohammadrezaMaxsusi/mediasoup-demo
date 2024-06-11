@@ -94,7 +94,7 @@ async function runMediasoupWorkers()
 {
 	const { numWorkers } = config.mediasoup;
 
-	logger.info('running %d mediasoup Workers...', numWorkers);
+	// logger.info('running %d mediasoup Workers...', numWorkers);
 
 	for (let i = 0; i < numWorkers; ++i)
 	{
@@ -110,8 +110,8 @@ async function runMediasoupWorkers()
 
 		worker.on('died', () =>
 		{
-			logger.error(
-				'mediasoup Worker died, exiting  in 2 seconds... [pid:%d]', worker.pid);
+			// logger.error(
+			// 	'mediasoup Worker died, exiting  in 2 seconds... [pid:%d]', worker.pid);
 
 			setTimeout(() => process.exit(1), 2000);
 		});
@@ -142,11 +142,11 @@ async function runMediasoupWorkers()
 		{
 			const usage = await worker.getResourceUsage();
 
-			logger.info('mediasoup Worker resource usage [pid:%d]: %o', worker.pid, usage);
+			// logger.info('mediasoup Worker resource usage [pid:%d]: %o', worker.pid, usage);
 
 			const dump = await worker.dump();
 
-			logger.info('mediasoup Worker dump [pid:%d]: %o', worker.pid, dump);
+			// logger.info('mediasoup Worker dump [pid:%d]: %o', worker.pid, dump);
 		}, 120000);
 	}
 }
@@ -156,7 +156,7 @@ async function runMediasoupWorkers()
  */
 async function createExpressApp()
 {
-	logger.info('creating Express app...');
+	// logger.info('creating Express app...');
 
 	expressApp = express();
 
@@ -177,7 +177,7 @@ async function createExpressApp()
 			})
 				.catch((error) =>
 				{
-					logger.error('room creation or room joining via broadcaster failed:%o', error);
+					// logger.error('room creation or room joining via broadcaster failed:%o', error);
 
 					next(error);
 				});
@@ -429,7 +429,7 @@ async function createExpressApp()
 		{
 			if (error)
 			{
-				logger.warn('Express app %s', String(error));
+				// logger.warn('Express app %s', String(error));
 
 				error.status = error.status || (error.name === 'TypeError' ? 400 : 500);
 
@@ -449,7 +449,7 @@ async function createExpressApp()
  */
 async function runHttpsServer()
 {
-	logger.info('running an HTTPS server...');
+	// logger.info('running an HTTPS server...');
 
 	// HTTPS server for the protoo WebSocket server.
 	const tls =
@@ -472,7 +472,7 @@ async function runHttpsServer()
  */
 async function runProtooWebSocketServer()
 {
-	logger.info('running protoo WebSocketServer...');
+	// logger.info('running protoo WebSocketServer...');
 
 	// Create the protoo WebSocket server.
 	protooWebSocketServer = new protoo.WebSocketServer(httpsServer,
@@ -505,9 +505,9 @@ async function runProtooWebSocketServer()
 			consumerReplicas = 0;
 		}
 
-		logger.info(
-			'protoo connection request [roomId:%s, peerId:%s, address:%s, origin:%s]',
-			roomId, peerId, info.socket.remoteAddress, info.origin);
+		// logger.info(
+		// 	'protoo connection request [roomId:%s, peerId:%s, address:%s, origin:%s]',
+		// 	roomId, peerId, info.socket.remoteAddress, info.origin);
 
 		// Serialize this code into the queue to avoid that two peers connecting at
 		// the same time with the same roomId create two separate rooms with same
@@ -523,7 +523,7 @@ async function runProtooWebSocketServer()
 		})
 			.catch((error) =>
 			{
-				logger.error('room creation or room joining failed:%o', error);
+				// logger.error('room creation or room joining failed:%o', error);
 
 				reject(error);
 			});
@@ -553,7 +553,7 @@ async function getOrCreateRoom({ roomId, consumerReplicas })
 	// If the Room does not exist create a new one.
 	if (!room)
 	{
-		logger.info('creating a new Room [roomId:%s]', roomId);
+		// logger.info('creating a new Room [roomId:%s]', roomId);
 
 		const mediasoupWorker = getMediasoupWorker();
 
