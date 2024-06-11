@@ -40,7 +40,7 @@ class Room extends EventEmitter
 
 		// Create a mediasoup Router.
 		const mediasoupRouter = await mediasoupWorker.createRouter({ mediaCodecs });
-
+		console.log(mediasoupRouter)
 		// Create a mediasoup AudioLevelObserver.
 		const audioLevelObserver = await mediasoupRouter.createAudioLevelObserver(
 			{
