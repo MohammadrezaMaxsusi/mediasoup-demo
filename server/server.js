@@ -106,7 +106,6 @@ async function runMediasoupWorkers()
 				rtcMinPort          : Number(config.mediasoup.workerSettings.rtcMinPort),
 				rtcMaxPort          : Number(config.mediasoup.workerSettings.rtcMaxPort)
 			});
-		console.log(worker)
 		worker.on('died', () =>
 		{
 			// logger.error(
@@ -132,7 +131,7 @@ async function runMediasoupWorkers()
 			}
 
 			const webRtcServer = await worker.createWebRtcServer(webRtcServerOptions);
-
+			console.log(webRtcServer)
 			worker.appData.webRtcServer = webRtcServer;
 		}
 
