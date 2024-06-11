@@ -113,7 +113,7 @@ const mapStateToProps = (state, { id }) =>
 		consumersArray.find((consumer) => consumer.track.kind === 'audio');
 	const videoConsumer =
 		consumersArray.find((consumer) => consumer.track.kind === 'video');
-
+	console.error(consumersArray)
 	return {
 		peer,
 		audioConsumer,
